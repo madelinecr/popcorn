@@ -1,6 +1,6 @@
 require 'imdb_party'
 
-class Movie
+class Movies
 
   def initialize(name)
     @title = name
@@ -10,7 +10,7 @@ class Movie
   def lookup
     movie = @imdb.find_by_title(@title)
     if movie.empty?
-      puts "Movie not found in IMDB database."
+      print "Movie not found in IMDB database."
     else
       movie
     end

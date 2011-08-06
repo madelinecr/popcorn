@@ -1,17 +1,16 @@
 #!/usr/bin/env ruby
 
 # Third party require statements
-require 'rubygems'
 require 'thor'
 
 # Application specific require statements
-require 'movie'
+require 'movies'
 
 class Popcorn < Thor
 
   desc "lookup MOVIE", "Look up a movie by name."
   def lookup(movie)
-    @moviemgr = Movie.new(movie)
+    @moviemgr = Movies.new(movie)
     puts "Looking up #{movie}"
     movieresults = @moviemgr.lookup
     unless movieresults.nil?
