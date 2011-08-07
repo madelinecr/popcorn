@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "popcorn"
   gem.homepage = "http://github.com/sensae/popcorn"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Popcorn is a movie management program}
+  gem.description = %Q{Popcorn will look up movies by name in the imdb database.}
   gem.email = "blainepace@gmail.com"
   gem.authors = ["Blaine Pace"]
   # dependencies defined in Gemfile
@@ -38,7 +38,7 @@ end
 
 task :default => :spec
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 

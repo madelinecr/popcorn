@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 # Third party require statements
 require 'thor'
 
@@ -20,5 +18,3 @@ class Popcorn < Thor
     end
   end
 end
-
-Popcorn.start
