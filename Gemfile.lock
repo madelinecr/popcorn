@@ -29,8 +29,8 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.0.0)
-  imdb_party
+  imdb_party (~> 0.6.1)
   jeweler (~> 1.6.0)
   rcov
   rspec (~> 2.3.0)
-  thor
+  thor (~> 0.14.6)
