@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "popcorn"
   gem.homepage = "http://github.com/sensae/popcorn"
-  gem.license = "MIT"
+  gem.license = "GPL"
   gem.summary = %Q{Popcorn is a movie management program}
   gem.description = %Q{Popcorn will look up movies by name in the imdb database.}
   gem.email = "blainepace@gmail.com"

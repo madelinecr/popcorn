@@ -1,6 +1,7 @@
 = popcorn
 
-Description goes here.
+Popcorn is a movie management program written in Ruby. Popcorn will help you
+organize your movie collection automatically.
 
 == Contributing to popcorn
  
