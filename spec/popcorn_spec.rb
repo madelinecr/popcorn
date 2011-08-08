@@ -5,7 +5,7 @@ describe "Popcorn" do
   describe "success" do
   
     it "should search for a movie given a name" do
-      @popcorn = Popcorn.new
+      @popcorn = Popcorn::Driver.new
       @popcorn.lookup("Inception")
       STDOUT.string.should =~ /Title:/i
     end

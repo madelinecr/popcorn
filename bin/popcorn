@@ -2,4 +2,4 @@
 
 require 'popcorn'
 
-Popcorn.start
+Popcorn::Driver.start

@@ -2,13 +2,13 @@
 require 'thor'
 
 # Application specific require statements
-require 'movies'
+require 'popcorn/movies'
 
-class Popcorn < Thor
+class Popcorn::Driver < Thor
 
   desc "lookup MOVIE", "Look up a movie by name."
   def lookup(movie)
-    @moviemgr = Movies.new
+    @moviemgr = Popcorn::Movies.new
     puts "Looking up #{movie}"
     movieresults = @moviemgr.lookup(movie)
     unless movieresults.nil?
