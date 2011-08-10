@@ -8,7 +8,7 @@ class Popcorn::Driver < Thor
 
   desc "lookup MOVIE", "Look up a movie by name."
   def lookup(movie)
-    @moviemgr = Popcorn::Movies.new
+    @moviemgr = Popcorn::MovieManager.new
     puts "Looking up #{movie}"
     movieresults = @moviemgr.lookup(movie)
     unless movieresults.nil?

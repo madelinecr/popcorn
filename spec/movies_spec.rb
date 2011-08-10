@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "Movies" do
 
   before :each do
-    @moviemgr = Popcorn::Movies.new
+    @moviemgr = Popcorn::MovieManager.new
   end
 
   describe "fail" do

@@ -1,7 +1,7 @@
 require 'imdb_party'
 
 module Popcorn
-  class Movies
+  class MovieManager
 
     def initialize
       @imdb = ImdbParty::Imdb.new
