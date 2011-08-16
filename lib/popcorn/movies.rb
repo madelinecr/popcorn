@@ -1,4 +1,5 @@
 require 'imdb_party'
+require 'pathname'
 
 module Popcorn
   class MovieManager
@@ -7,9 +8,9 @@ module Popcorn
       @imdb = ImdbParty::Imdb.new
     end
 
-    def lookup(name)
-      @title = name
-      movie = @imdb.find_by_title(@title)
+    def lookup(path)
+      @path = Pathname.new(path)
+      movie = @imdb.find_by_title(@path.basename)
       if movie.empty?
         print "Movie not found in IMDB database."
       else

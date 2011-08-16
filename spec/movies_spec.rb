@@ -18,6 +18,10 @@ describe "Movies" do
   end
 
   describe "success" do
+    it "should handle a filesystem path gracefully" do
+      @moviemgr.lookup("testing/paths/Inception").class.should == Array
+    end
+
     it "should return an array of matches" do
       @moviemgr.lookup("Inception").class.should == Array
     end
