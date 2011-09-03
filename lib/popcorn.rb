@@ -3,6 +3,7 @@ require 'thor'
 
 # Application specific require statements
 require 'popcorn/movies'
+require 'popcorn/settings'
 
 class Popcorn::Driver < Thor
 
@@ -16,5 +17,10 @@ class Popcorn::Driver < Thor
       puts "Year:    #{movieresults[0][:year]}"
       puts "Art URL: #{movieresults[0][:poster_url]}"
     end
+  end
+
+  desc "config", "Configure this application."
+  def config
+    puts Settings.library
   end
 end
