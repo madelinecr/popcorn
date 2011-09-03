@@ -8,20 +8,27 @@ class Settings
   class << self
     attr_accessor :conf_file, :library
 
-    def init_settings
-      unless @conf_file.exist?
-        puts "Writing file."
-        @conf_file.open("w") do |f|
-          config = { :popcorn => { :lib => "~/tmp/popcorn" } }
-          f.write(config.to_yaml)
-        end
+    def write_settings(options={})
+      defaults = { :lib => "~/tmp/popcorn" }
+      options = defaults.merge(options)
+      puts "Writing file."
+      @conf_file.open("w") do |f|
+        config = { :popcorn => options }
+        f.write(config.to_yaml)
       end
     end
 
     def library
-      init_settings
+      unless @conf_file.exist?
+        write_settings
+      end
       @library = YAML::load(@conf_file.open())[:popcorn][:lib]
       @library
+    end
+
+    def library= (value)
+      @library = value      
+      write_settings(:lib => value)
     end
   end
 end

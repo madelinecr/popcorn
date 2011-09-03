@@ -19,8 +19,8 @@ class Popcorn::Driver < Thor
     end
   end
 
-  desc "config", "Configure this application."
-  def config
-    puts Settings.library
+  desc "library PATH", "Set library location."
+  def library(path)
+    Settings.library = path
   end
 end
