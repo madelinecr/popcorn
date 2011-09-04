@@ -22,7 +22,9 @@ class Settings
       unless @conf_file.exist?
         write_settings
       end
-      @library = YAML::load(@conf_file.open())[:popcorn][:lib]
+      if @library.nil?
+        @library = YAML::load(@conf_file.open())[:popcorn][:lib]
+      end
       @library
     end
 
