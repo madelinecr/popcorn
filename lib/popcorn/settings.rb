@@ -9,7 +9,7 @@ class Settings
     attr_accessor :conf_file, :library
 
     def write_settings(options={})
-      defaults = { :lib => "~/tmp/popcorn" }
+      defaults = { :library => "~/tmp/popcorn" }
       options = defaults.merge(options)
       puts "Writing file."
       @conf_file.open("w") do |f|
@@ -23,14 +23,14 @@ class Settings
         write_settings
       end
       if @library.nil?
-        @library = YAML::load(@conf_file.open())[:popcorn][:lib]
+        @library = YAML::load(@conf_file.open())[:popcorn][:library]
       end
       @library
     end
 
     def library= (value)
       @library = value      
-      write_settings(:lib => value)
+      write_settings(:library => value)
     end
   end
 end
