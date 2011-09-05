@@ -1,9 +1,17 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "Settings" do
+require 'fakefs/spec_helpers'
 
-  describe "get library directory" do
-    
+describe "Settings" do
+  include FakeFS::SpecHelpers
+
+  describe "config file" do
+
+    it "should be created if one doesn't exist" do
+      File.should_not exist("~/.popcorn")
+      Settings.write_settings
+      File.should exist("~/.popcorn")
+    end
   end
 
   describe "set library directory value" do
