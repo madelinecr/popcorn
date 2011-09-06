@@ -1,4 +1,5 @@
 require 'pathname'
+require 'fileutils'
 require 'yaml'
 
 class Settings
@@ -16,20 +17,18 @@ class Settings
         config = { :popcorn => options }
         f.write(config.to_yaml)
       end
+      FileUtils.mkdir_p(Pathname(options[:library]).expand_path.to_s)
     end
 
     def library
       unless @conf_file.exist?
         write_settings
       end
-      if @library.nil?
-        @library = YAML::load(@conf_file.open())[:popcorn][:library]
-      end
-      @library
+      @library = YAML::load(@conf_file.open())[:popcorn][:library]
     end
 
     def library= (value)
-      @library = value      
+      @library = value
       write_settings(:library => value)
     end
   end

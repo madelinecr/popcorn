@@ -17,5 +17,20 @@ describe "Settings" do
 
   describe "set library directory value" do
 
+    it "should create directory" do
+      Settings.library = "~/testlib"
+      puts Settings.library
+      path = Pathname.new(Settings.library.to_s)
+      path.should exist
+    end
+  end
+
+  describe "get library directory value" do
+    
+    it "should return existing directory" do
+      Settings.library
+      path = Pathname.new(Settings.library.to_s)
+      path.should exist
+    end
   end
 end
