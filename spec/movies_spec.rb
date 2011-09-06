@@ -9,13 +9,9 @@ describe "Movies" do
   end
 
   describe "fail" do
-    it "should report no matches" do
-      @moviemgr.lookup("asdfasdfasdf")
-      STDOUT.string.should =~ /Movie not found in IMDB database/i
-    end
 
     it "should return a nil object" do
-      @moviemgr.lookup("asdfasdfasdf").should be_nil
+      @moviemgr.lookup("asdfasdfasdf").should be_empty
     end
   end
 

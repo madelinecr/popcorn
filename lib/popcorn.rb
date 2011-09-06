@@ -11,11 +11,12 @@ class Popcorn::Driver < Thor
   def lookup(movie)
     @moviemgr = Popcorn::MovieManager.new
     puts "Looking up #{movie}"
-    movieresults = @moviemgr.lookup(movie)
-    unless movieresults.nil?
-      puts "Title:   #{movieresults[0][:title]}"
-      puts "Year:    #{movieresults[0][:year]}"
-      puts "Art URL: #{movieresults[0][:poster_url]}"
+    @moviemgr.lookup(movie)
+    unless @moviemgr.movies.empty?
+      puts "Title:   #{@moviemgr.movies[0][:title]}"
+      puts "Year:    #{@moviemgr.movies[0][:year]}"
+      puts "Art URL: #{@moviemgr.movies[0][:poster_url]}"
+      puts "Path:    #{@moviemgr.path}"
     end
   end
 
