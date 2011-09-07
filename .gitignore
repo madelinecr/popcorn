@@ -1,3 +1,6 @@
+# editor files
+*.swp
+
 # rcov generated
 coverage
 
