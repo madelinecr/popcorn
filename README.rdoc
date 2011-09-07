@@ -3,6 +3,23 @@
 Popcorn is a movie management program written in Ruby. Popcorn will help you
 organize your movie collection automatically.
 
+= Usage
+
+Popcorn create a configuration file at ~/.popcorn. Tell popcorn where you want
+your movie library to be.
+
+    popcorn library ~/movies
+
+After popcorn is configured, you can import movies to your library very easily.
+
+    popcorn import "Star Trek Wrath of Khan.mkv"
+
+Popcorn will automatically move your movie into the library directory with a 
+sane directory structure, and if it finds poster art it will download that as 
+well. Popcorn can be used to create a collection of movies that are properly
+organized and named. By default it uses a directory structure that XBMC is 
+familiar with, so you get a gorgeous movie library with thumbnails.
+
 == Contributing to popcorn
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
