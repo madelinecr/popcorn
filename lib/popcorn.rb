@@ -7,16 +7,32 @@ require 'popcorn/settings'
 
 class Popcorn::Driver < Thor
 
-  desc "lookup MOVIE", "Look up a movie by name."
-  def lookup(movie)
+  desc "import MOVIE", "Move movie file into library."
+  def import(movie)
     @moviemgr = Popcorn::MovieManager.new
-    puts "Looking up #{movie}"
-    @moviemgr.lookup(movie)
-    unless @moviemgr.movies.empty?
-      puts "Title:   #{@moviemgr.movies[0][:title]}"
-      puts "Year:    #{@moviemgr.movies[0][:year]}"
-      puts "Art URL: #{@moviemgr.movies[0][:poster_url]}"
-      puts "Path:    #{@moviemgr.path}"
+
+    while true
+      @moviemgr.lookup(movie)
+      puts
+      puts "Looking up #{movie}"
+      unless @moviemgr.movie.nil?
+        puts "Title:   #{@moviemgr.movie[:title]}"
+        puts "Year:    #{@moviemgr.movie[:year]}"
+        puts "Art URL: #{@moviemgr.movie[:poster_url]}"
+        print "Is this correct? (y/n): "
+        if STDIN.gets.chomp =~ /y/i
+          begin
+            @moviemgr.save_to_library
+            puts "Movie successfully imported."
+          rescue Exception => e
+            puts e.message
+          end
+          break
+        else
+          print "Please enter new search term: "
+          movie = STDIN.gets.chomp
+        end
+      end
     end
   end
 
