@@ -5,12 +5,13 @@ require 'yaml'
 class Settings
 
   @conf_file = Pathname("~/.popcorn").expand_path
+  @default_library = Pathname("~/popcorn").expand_path
 
   class << self
     attr_accessor :conf_file, :library
 
     def write_settings(options={})
-      defaults = { :library => "~/tmp/popcorn" }
+      defaults = { :library => @default_library.to_s }
       options = defaults.merge(options)
       puts "Writing file."
       @conf_file.open("w") do |f|
