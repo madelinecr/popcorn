@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/sensae/popcorn.png)](http://travis-ci.org/sensae/popcorn)
+{<img src="https://secure.travis-ci.org/sensae/popcorn.png"/>}[http://travis-ci.org/sensae/popcorn]
 
 = popcorn
 
