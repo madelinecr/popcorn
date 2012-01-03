@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/sensae/popcorn.png)](http://travis-ci.org/sensae/popcorn)
+
 = popcorn
 
 Popcorn is a movie management program written in Ruby. Popcorn will help you
