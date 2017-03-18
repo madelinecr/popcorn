@@ -3,7 +3,7 @@ source "http://rubygems.org"
 # Example:
 #   gem "activesupport", ">= 2.3.5"
 
-gem 'thor', "~> 0.14.6"
+gem 'thor', "~> 0.19.4"
 gem 'imdb_party', "~> 0.8.0"
 
 # Add dependencies to develop your gem here.
@@ -11,7 +11,7 @@ gem 'imdb_party', "~> 0.8.0"
 group :development do
   gem "rspec", "~> 2.3.0"
   gem "bundler", "~> 1.14.6"
-  gem "jeweler", "~> 1.6.0"
+  gem "jeweler", "~> 2.3.3"
   gem "simplecov", ">= 0"
   gem "fakefs", "~> 0.3.2"
 end
