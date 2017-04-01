@@ -8,17 +8,19 @@ require 'popcorn/settings'
 class Popcorn::Driver < Thor
 
   desc "import MOVIE", "Move movie file into library."
-  def import(movie)
+  def import(movie_filename)
     @moviemgr = Popcorn::MovieManager.new
 
     while true
-      @moviemgr.lookup(movie)
+      puts "Please enter search term for movie name: "
+      movie = STDIN.gets.chomp
+
+      @moviemgr.lookup(movie, movie_filename)
       puts
       puts "Looking up #{movie}"
       unless @moviemgr.movie.nil?
         puts "Title:   #{@moviemgr.movie[:title]}"
         puts "Year:    #{@moviemgr.movie[:year]}"
-        puts "Art URL: #{@moviemgr.movie[:poster_url]}"
         print "Is this correct? (y/n): "
         if STDIN.gets.chomp =~ /y/i
           begin
@@ -28,9 +30,6 @@ class Popcorn::Driver < Thor
             puts e.message
           end
           break
-        else
-          print "Please enter new search term: "
-          movie = STDIN.gets.chomp
         end
       end
     end

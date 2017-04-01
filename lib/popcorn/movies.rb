@@ -15,11 +15,11 @@ module Popcorn
       @imdb = ImdbParty::Imdb.new
     end
 
-    def lookup(movie)
+    def lookup(movie, movie_filename)
       if @path.nil?
-        @path = Pathname.new(movie)
+        @path = Pathname.new(movie_filename)
       end
-      movie = File.basename(movie, '.*')
+      #movie = File.basename(movie, '.*')
       @movie = @imdb.find_by_title(movie)[0]
     end
 
@@ -27,8 +27,8 @@ module Popcorn
       unless @path.exist?
         raise "Error: File does not exist #{@path}"
       end
-      to_dir = "#{Settings.library}/#{@movie[:title]}/"
-      filename = "#{@movie[:title]}#{@path.extname}"
+      to_dir = "#{Settings.library}/#{@movie[:title]} (#{@movie[:year]})/"
+      filename = "#{@movie[:title]} (#{@movie[:year]})#{@path.extname}"
       to_path = "#{to_dir}#{filename}"
       FileUtils.mkdir(to_dir)
       puts "Moving #{@path} to #{to_path}"
